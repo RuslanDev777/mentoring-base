@@ -1,0 +1,60 @@
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">
+      <img src="../assets/Frame.svg" />
+    </div>
+    <nav class="header-nav">
+      <button class="header-item" routerLink="users">Админка</button>
+      <div class="header-item" routerLink="/">{{ headerHome }}</div>
+      <div class="header-item">{{ aboutCompany }}</div>
+      <div class="header-item" *ngIf="isShowCatalog">
+        {{ headerCatalog }}
+      </div>
+    </nav>
+    <button
+      (click)="isShowCatalog = !isShowCatalog"
+      style="border: 2px solid white; padding: 5px"
+    >
+      Скрыть/Показать
+    </button>
+    <button (click)="changeMenuText()">сделать мелким</button>
+  </div>
+  <div class="header-right">
+    <div class="header-contact">
+      <img class="logo-contact" src="../assets/Phone.svg" alt="" />
+      <a href="">+7 (965) 084-29-29</a>
+    </div>
+    <div class="header-like">
+      <img src="../assets/heart 1.svg" alt="" />
+    </div>
+    <button class="header-cart">
+      <div class="header-items">
+        <img class="header-cart-logo" src="../assets/Cart.svg" alt="" />
+        <p>Пусто</p>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <img
+      src="../assets/Light/UI icon/menu/light.svg"
+      alt=""
+      class="top-bar-item"
+    />
+    <div class="top-bar-item" *ngFor="let item of menuItems">{{ item }}</div>
+  </div>
+  <div class="top-bar-right">
+    <div class="top-bar-right-search">
+      <input
+        type="text"
+        class="top-bar-search"
+        placeholder="Поиск, например Круг зачистной"
+      />
+      <img src="../assets/Light/Mask group.svg" alt="" />
+    </div>
+
+    <img class="location" src="../assets/Light/Time.svg" alt="" />
+  </div>
+</div>
