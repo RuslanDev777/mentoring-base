@@ -1,0 +1,6 @@
+<div>
+  <p class="todo-text"><span>Текст задачи:</span> {{ todo.title }}</p>
+  <p class="todo-text">Автор задачи: {{ todo.userId }}</p>
+  <p class="todo-text">Задача завершена: {{ todo.completed ? "Да" : "Нет" }}</p>
+  <button (click)="onDeleteTodo(todo.id)">Удалить</button>
+</div>

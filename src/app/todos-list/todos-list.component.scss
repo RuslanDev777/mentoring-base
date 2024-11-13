@@ -1,0 +1,45 @@
+* {
+  font-family: Inter, sans-serif;
+}
+
+.todos-container {
+  //   width: 100%;
+  //   min-width: 1250px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 16px;
+}
+
+.todos-cart {
+  //   max-width: calc(33.333% - 40px);
+  //   height: 300px;
+  //   border-radius: 10px;
+  padding: 20px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   text-align: center;
+
+  margin: 10px;
+
+  flex: 1 1 calc(33.33% - 16px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+    /* Верхняя и нижняя тень */ 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.todos-cart p:nth-child(1) {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.todos-cart button:hover {
+  background-color: rgb(234, 40, 40);
+}

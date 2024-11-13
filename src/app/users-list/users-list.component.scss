@@ -29,25 +29,9 @@
     /* Верхняя и нижняя тень */ 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.user-text {
-  margin-bottom: 20px;
-}
-
 .user-cart p:nth-child(1) {
   font-weight: bold;
   font-size: 18px;
-}
-
-.user-cart button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: red;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .user-cart button:hover {
