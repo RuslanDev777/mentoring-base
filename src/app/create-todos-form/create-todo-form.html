@@ -1,0 +1,31 @@
+<div class="container-formTodo">
+  <form
+    action=""
+    class="form-todo"
+    [formGroup]="formTodo"
+    (ngSubmit)="submitFormTodo()"
+  >
+    <h1>Create todo</h1>
+    <div class="content-formTodo">
+      <p>Текст задачи:</p>
+      <input
+        type="text"
+        class="formTodo-input"
+        formControlName="title"
+        (focus)="isTitleFocused = true"
+        (blur)="isTitleFocused = false"
+      />
+      <div
+        *ngIf="formTodo.controls['title'].invalid && (formTodo.controls['title'].dirty && isTitleFocused )"
+      >
+        <div class="errorTodo" *ngIf="formTodo.controls['title'].errors">
+          Задача введена неправильно
+        </div>
+      </div>
+      <p>Автор задачи:</p>
+      <input type="text" class="formTodo-input" formControlName="id" />
+
+      <button [disabled]="formTodo.invalid">Create todo</button>
+    </div>
+  </form>
+</div>
