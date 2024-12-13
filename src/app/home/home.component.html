@@ -1,0 +1,22 @@
+<div class="home-container">
+  <h1>Добро пожаловать на главную страницу</h1>
+  <p>Выберите действие:</p>
+
+  <div class="buttons">
+    <button class="btn admin-btn" (click)="loginAsAdmin()">
+      Войти как администратор
+    </button>
+    <button class="btn user-btn" (click)="loginAsUser()">
+      Войти как пользователь
+    </button>
+    <button class="btn logout-btn" (click)="logout()">Выйти</button>
+  </div>
+
+  <div class="info">
+    <p *ngIf="isAdmin()">Вы вошли как <strong>администратор</strong>.</p>
+    <p *ngIf="!isAdmin()">
+      Вы вошли как <strong>обычный пользователь</strong>.
+    </p>
+  </div>
+  <button class="btn admin-btn" routerLink="/admin">Админка</button>
+</div>

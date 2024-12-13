@@ -1,5 +1,4 @@
-// font inter
-* {
+font inter * {
   font-family: Inter, sans-serif;
 }
 
@@ -149,4 +148,12 @@ a {
 
 .final {
   color: #fff;
+}
+
+.custom-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+  font-size: 72px;
+  text-align: center;
+  border-radius: 8px;
 }

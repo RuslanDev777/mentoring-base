@@ -1,0 +1,48 @@
+<h1>{{ data.user.name }}</h1>
+
+<div class="container-form">
+  <form action="" class="create-form" [formGroup]="form">
+    <h2>Edit user</h2>
+    <mat-form-field>
+      <mat-label>Введите имя*</mat-label>
+      <input type="text" matInput formControlName="name" />
+
+      <mat-error>Имя обязательно*</mat-error>
+      <mat-error>Минимум 2 символа</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Введите email*</mat-label>
+      <input type="email" matInput formControlName="email" />
+
+      <mat-error>Email обязателен</mat-error>
+      <mat-error>Некорректный адрес электронной почты</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Введите сайт*</mat-label>
+      <input type="text" matInput formControlName="website" />
+
+      <mat-error>Сайт обязателен*</mat-error>
+      <mat-error>Минимум 2 символа</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Название компании*</mat-label>
+      <input type="text" matInput formControlName="companyName" />
+
+      <mat-error>Название компании*</mat-error>
+      <mat-error>Минимум 2 символа</mat-error>
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      class="createFormUsers"
+      [disabled]="form.invalid"
+      [mat-dialog-close]="userWithUpdateFields"
+    >
+      Submit
+    </button>
+  </form>
+</div>

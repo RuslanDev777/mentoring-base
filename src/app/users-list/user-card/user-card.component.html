@@ -1,5 +1,28 @@
-<p class="user-text">{{ user.name }}</p>
-<p class="user-text">{{ user.email }}</p>
-<p class="user-text">{{ user.website }}</p>
-<p class="user-text">{{ user.company.name }}</p>
-<button (click)="onDeleteUser(user.id)">Удалить</button>
+<mat-card-header>
+  <mat-card-title>{{ user.name | customUpperCase }}</mat-card-title>
+  <mat-card-subtitle>{{ user.company.name }}</mat-card-subtitle>
+</mat-card-header>
+
+<mat-card-content>
+  <p>Email: {{ user.email }}</p>
+  <p>Website: {{ user.website }}</p>
+  <p>Number: {{ user.phone | clearNumberPipe }}</p>
+</mat-card-content>
+
+<mat-card-actions>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="openDeleteConfirmationDialog(user.id)"
+  >
+    Удалить
+  </button>
+  <button
+    matTooltip="Редактировать данные пользователя"
+    mat-raised-button
+    color="primary"
+    (click)="openDialog()"
+  >
+    Редактировать
+  </button>
+</mat-card-actions>

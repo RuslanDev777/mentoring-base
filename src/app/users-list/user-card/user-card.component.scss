@@ -1,15 +1,32 @@
-.user-text {
-  margin-bottom: 20px;
+// .user-text {
+//   margin-bottom: 20px;
+// }
+
+// button {
+//   margin-top: 15px;
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 5px;
+//   background-color: red;
+//   color: white;
+//   font-size: 14px;
+//   cursor: pointer;
+//   transition: 0.3s ease;
+// }
+
+// .cart {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.user-card {
+  margin: 16px;
+  width: 300px;
+  display: inline-block; /* Чтобы карточки были в одной строке */
+  vertical-align: top; /* Выравнивание карточек по верхнему краю */
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: red;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
 }

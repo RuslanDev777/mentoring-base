@@ -4,11 +4,13 @@
       <img src="../assets/Frame.svg" />
     </div>
     <nav class="header-nav">
-      <button class="header-item" routerLink="users">Админка</button>
-      <button class="header-item" routerLink="todos">todos</button>
+      <button class="header-item">Админка</button>
+      <button class="header-item" routerLink="home">Домой</button>
+      <button class="header-item" routerLink="users">Users</button>
+      <button class="header-item" routerLink="todos">Todos</button>
 
       <div class="header-item" routerLink="/">{{ headerHome }}</div>
-      <div class="header-item">{{ aboutCompany }}</div>
+
       <div class="header-item" *ngIf="isShowCatalog">
         {{ headerCatalog }}
       </div>
@@ -26,10 +28,11 @@
       <img class="logo-contact" src="../assets/Phone.svg" alt="" />
       <a href="">+7 (965) 084-29-29</a>
     </div>
+    <p>{{ today | date : "medium" }}</p>
     <div class="header-like">
       <img src="../assets/heart 1.svg" alt="" />
     </div>
-    <button class="header-cart">
+    <button color class="header-cart">
       <div class="header-items">
         <img class="header-cart-logo" src="../assets/Cart.svg" alt="" />
         <p>Пусто</p>

@@ -1,0 +1,63 @@
+.home-container {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.admin-btn:hover {
+  background-color: #45a049;
+}
+
+.user-btn {
+  background-color: #008cba;
+  color: white;
+}
+
+.user-btn:hover {
+  background-color: #007bb5;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #da190b;
+}
+
+.info {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
+}

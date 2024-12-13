@@ -5,27 +5,15 @@
     [formGroup]="formTodo"
     (ngSubmit)="submitFormTodo()"
   >
-    <h1>Create todo</h1>
-    <div class="content-formTodo">
-      <p>Текст задачи:</p>
-      <input
-        type="text"
-        class="formTodo-input"
-        formControlName="title"
-        (focus)="isTitleFocused = true"
-        (blur)="isTitleFocused = false"
-      />
-      <div
-        *ngIf="formTodo.controls['title'].invalid && (formTodo.controls['title'].dirty && isTitleFocused )"
-      >
-        <div class="errorTodo" *ngIf="formTodo.controls['title'].errors">
-          Задача введена неправильно
-        </div>
-      </div>
-      <p>Автор задачи:</p>
-      <input type="text" class="formTodo-input" formControlName="id" />
-
-      <button [disabled]="formTodo.invalid">Create todo</button>
-    </div>
+    <h2>Create todo</h2>
+    <mat-form-field class="content-formTodo">
+      <mat-label>Текст задачи:</mat-label>
+      <input matInput type="text" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="content-formTodo">
+      <mat-label>Автор задачи:</mat-label>
+      <input matInput type="text" formControlName="id" />
+    </mat-form-field>
+    <button mat-raised-button [disabled]="formTodo.invalid">Create todo</button>
   </form>
 </div>

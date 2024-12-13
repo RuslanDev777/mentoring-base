@@ -1,6 +1,7 @@
-import { NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ColorDirective } from '../directives/color.directive';
 
 const menuItems = [
   'Каталог',
@@ -23,9 +24,10 @@ const returnName = (name: string) => {
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
-  imports: [NgIf, NgFor, RouterOutlet, RouterLink],
+  imports: [NgIf, NgFor, RouterLink, DatePipe, ColorDirective],
 })
 export class HeaderComponent {
+  today: number = Date.now();
   isShowCatalog = true;
 
   headerHome = 'Главная';
