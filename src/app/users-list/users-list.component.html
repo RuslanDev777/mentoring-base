@@ -1,6 +1,7 @@
 <div class="button-container">
   <button class="create-user" mat-raised-button (click)="openCreateDialog()">
     Создать пользователя
+    <mat-icon>add</mat-icon>
   </button>
 </div>
 
@@ -8,7 +9,7 @@
   <mat-card
     shadow
     class="user-cart"
-    *ngFor="let item of usersService.usersSubject$ | async"
+    *ngFor="let item of usersService.users$ | async"
   >
     <app-user-card
       [user]="item"

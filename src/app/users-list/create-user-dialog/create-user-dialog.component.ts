@@ -36,16 +36,17 @@ export class CreateUserDialogComponent {
       Validators.required,
       Validators.minLength(2),
     ]),
-    companyName: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
+    company: new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    }),
+
+    phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
   });
 
   get userWithCreateFields() {
     return {
       ...this.form.value,
-      id: 1323,
+      // id: new Date().getTime(),
     };
   }
 }

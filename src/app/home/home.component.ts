@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UsersService } from 'src/app/users.service';
+import { UserService } from '../user.service';
 
 @Component({
   standalone: true,
@@ -11,7 +12,7 @@ import { UsersService } from 'src/app/users.service';
   imports: [NgIf, RouterLink],
 })
 export class HomeComponent {
-  private userService = inject(UsersService);
+  private userService = inject(UserService);
 
   loginAsAdmin() {
     this.userService.loginAsAdmin();

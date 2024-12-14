@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true,
 })
 export class ClearNumberPipe implements PipeTransform {
-  transform(text: string) {
-    return text.replace(/-/g, '');
+  transform(text: string | null | undefined) {
+    return text?.replace(/-/g, '');
   }
 }

@@ -1,7 +1,10 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ColorDirective } from '../directives/color.directive';
+import { MatDialog } from '@angular/material/dialog';
+
+import { UserService } from '../user.service';
 
 const menuItems = [
   'Каталог',
@@ -27,6 +30,8 @@ const returnName = (name: string) => {
   imports: [NgIf, NgFor, RouterLink, DatePipe, ColorDirective],
 })
 export class HeaderComponent {
+  readonly dialog = inject(MatDialog);
+  public readonly userService = inject(UserService);
   today: number = Date.now();
   isShowCatalog = true;
 

@@ -11,36 +11,14 @@ import { UsersService } from '../users.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
-import { MatButtonModule } from '@angular/material/button';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { MatButtonModule, MatIconAnchor } from '@angular/material/button';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShadowDirective } from '../directives/shadow.directive';
-
-export interface User {
-  id: number;
-  name: string;
-  username?: string;
-  email: string;
-  address?: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone?: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase?: string;
-    bs?: string;
-  };
-}
+import { MatIconModule } from '@angular/material/icon';
+import { EditedUser, User, UserForm } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-users-list',
@@ -55,6 +33,7 @@ export interface User {
     MatButtonModule,
     MatCardModule,
     ShadowDirective,
+    MatIconModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -73,16 +52,18 @@ export class UsersListComponent {
       .subscribe((responce: User[]) => this.usersService.setUsers(responce));
   }
 
-  public createUser(formData: any) {
+  public createUser(formData: UserForm) {
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formData.name,
       email: formData.email,
       website: formData.website,
       company: {
-        name: formData.companyName,
+        name: formData.company.name,
       },
+      phone: formData.phone,
     });
+    console.log(formData);
     this.showSnackbar('Пользователь успешно добавлен');
   }
 
@@ -91,12 +72,9 @@ export class UsersListComponent {
     this.showSnackbar('Пользователь успешно удален');
   }
 
-  editUser(user: any) {
+  editUser(user: EditedUser) {
     this.usersService.editUser({
       ...user,
-      company: {
-        name: user.companyName,
-      },
     });
     this.showSnackbar('Пользователь отредактирован');
   }
@@ -123,3 +101,4 @@ export class UsersListComponent {
     });
   }
 }
+export { User };

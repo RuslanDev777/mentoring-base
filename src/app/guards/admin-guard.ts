@@ -1,28 +1,17 @@
 import { inject, Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  GuardResult,
-  MaybeAsync,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
-import { UsersService } from '../users.service';
+import { CanActivateFn, Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AdminGuard implements CanActivate {
-  private userService = inject(UsersService);
-  private router = inject(Router);
+import { UserService } from '../user.service';
 
-  canActivate(): boolean {
-    const isAdmin = this.userService.isAdmin();
+export const authGuard: CanActivateFn = (route, state) => {
+  const userService = inject(UserService);
+  const router = inject(Router);
 
-    if (!isAdmin) {
-      alert('Доступ запрещен! Вы должны быть администратом');
-      this.router.navigate(['/']);
-    }
-    return isAdmin;
+  if (userService.isAdmin()) {
+    return true;
+  } else {
+    alert('Вход запрещен');
+    router.navigate(['']);
+    return false;
   }
-}
+};

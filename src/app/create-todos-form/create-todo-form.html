@@ -7,12 +7,21 @@
   >
     <h2>Create todo</h2>
     <mat-form-field class="content-formTodo">
-      <mat-label>Текст задачи:</mat-label>
+      <mat-label>Текст задачи*:</mat-label>
       <input matInput type="text" formControlName="title" />
     </mat-form-field>
     <mat-form-field class="content-formTodo">
-      <mat-label>Автор задачи:</mat-label>
+      <mat-label>Автор задачи*:</mat-label>
       <input matInput type="text" formControlName="id" />
+    </mat-form-field>
+    <mat-form-field class="content-formTodo">
+      <mat-label>Задача завершена?*</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="completed"
+        placeholder="Да/Нет"
+      />
     </mat-form-field>
     <button mat-raised-button [disabled]="formTodo.invalid">Create todo</button>
   </form>

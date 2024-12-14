@@ -4,13 +4,7 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosService } from '../todos.service';
 import { createTodoFormComponent } from '../create-todos-form/create-todo-form';
-
-export interface Todos {
-  userId: number;
-  id: number;
-  title: string;
-  completed?: boolean;
-}
+import { Todos } from '../interfaces/todos.interface';
 
 @Component({
   selector: 'app-todos-list',
@@ -34,11 +28,13 @@ export class TodosListComponent {
     this.todosService.deleteTodos(id);
   }
 
-  createTodo(dataFormTodo: any) {
+  createTodo(dataFormTodo: Todos) {
     this.todosService.createTodo({
       userId: dataFormTodo.id,
       id: new Date().getTime(),
       title: dataFormTodo.title,
+      completed: dataFormTodo.completed,
     });
   }
 }
+export { Todos };
