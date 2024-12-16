@@ -19,6 +19,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShadowDirective } from '../directives/shadow.directive';
 import { MatIconModule } from '@angular/material/icon';
 import { EditedUser, User, UserForm } from '../interfaces/user.interface';
+import { Store } from '@ngrx/store';
+import { UsersActions } from './store/users.actions';
+import { selectUsers } from './store/users.selectors';
 
 @Component({
   selector: 'app-users-list',
@@ -42,40 +45,45 @@ export class UsersListComponent {
   readonly usersService = inject(UsersService);
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
+  private readonly store = inject(Store);
+  public readonly users$ = this.store.select(selectUsers);
 
   @Input()
-  user: any;
+  user: User[] = [];
 
   constructor() {
-    this.usersApiService
-      .getUsers()
-      .subscribe((responce: User[]) => this.usersService.setUsers(responce));
+    this.usersApiService.getUsers().subscribe((responce: User[]) => {
+      this.store.dispatch(UsersActions.set({ users: responce }));
+    });
   }
 
   public createUser(formData: UserForm) {
-    this.usersService.createUser({
-      id: new Date().getTime(),
-      name: formData.name,
-      email: formData.email,
-      website: formData.website,
-      company: {
-        name: formData.company.name,
-      },
-      phone: formData.phone,
-    });
-    console.log(formData);
+    this.store.dispatch(
+      UsersActions.create({
+        user: {
+          id: new Date().getTime(),
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          company: {
+            name: formData.company.name,
+          },
+          phone: formData.phone,
+        },
+      })
+    );
+
     this.showSnackbar('Пользователь успешно добавлен');
   }
 
   deleteUser(id: number) {
-    this.usersService.deleteUser(id);
+    // this.usersService.deleteUser(id);
+    this.store.dispatch(UsersActions.delete({ id }));
     this.showSnackbar('Пользователь успешно удален');
   }
 
   editUser(user: EditedUser) {
-    this.usersService.editUser({
-      ...user,
-    });
+    this.store.dispatch(UsersActions.edit({ user }));
     this.showSnackbar('Пользователь отредактирован');
   }
 
@@ -88,17 +96,15 @@ export class UsersListComponent {
       if (createdResult) {
         this.createUser(createdResult);
       }
-      console.log('мдалка закрылась', createdResult);
     });
   }
 
   showSnackbar(message: string): void {
     this.snackBar.open(message, 'Закрыть', {
-      duration: 3000, // Длительность показа (в миллисекундах)
-      horizontalPosition: 'right', // Расположение по горизонтали
+      duration: 3000,
+      horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: ['custom-snackbar'],
     });
   }
 }
-export { User };

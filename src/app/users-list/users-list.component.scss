@@ -13,22 +13,9 @@
   .user-card {
     margin: 16px;
     width: 300px;
-    display: inline-block; /* Чтобы карточки были в одной строке */
-    vertical-align: top; /* Выравнивание карточек по верхнему краю */
+    display: inline-block;
+    vertical-align: top;
   }
-  // min-width: calc(33.333% - 40px);
-  // height: 300px;
-  // border-radius: 10px;
-  // padding: 20px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // text-align: center;
-
-  // margin: 10px;
-
-  // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
-  //   /* Верхняя и нижняя тень */ 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .user-cart p:nth-child(1) {
@@ -54,11 +41,10 @@
 }
 
 mat-card {
-  // box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   transition: transform 0.2s;
 }
 
 mat-card:hover {
-  transform: translateY(-5px); /* Эффект при наведении */
+  transform: translateY(-5px);
 }

@@ -23,7 +23,7 @@ export class TodosService {
     );
   }
 
-  createTodo(todo: any) {
+  createTodo(todo: Todos) {
     const existingTodo = this.todosSubject$.value.find(
       (currentTodo) =>
         currentTodo.title.trim().toLowerCase() ===

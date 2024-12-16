@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from 'src/app/interfaces/todos.interface';
 import { TittleTransformPipe } from 'src/app/pipes/tittle-transform.pipe';
 
 @Component({
@@ -10,7 +11,7 @@ import { TittleTransformPipe } from 'src/app/pipes/tittle-transform.pipe';
 })
 export class TodoCardComponent {
   @Input()
-  todo: any;
+  todo: Todo = {} as Todo;
 
   @Output()
   deleteTodo = new EventEmitter();

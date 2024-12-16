@@ -1,21 +1,15 @@
-import {
-  Component,
-  EventEmitter,
-  inject,
-  Input,
-  Output,
-  output,
-} from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { UpperCasePipe } from '@angular/common';
+
 import { CustomUpperCasePipe } from 'src/app/pipes/upper-case.pipe';
 import { ClearNumberPipe } from 'src/app/pipes/clear-number.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { User } from 'src/app/interfaces/user.interface';
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
@@ -32,7 +26,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class UserCardComponent {
   readonly dialog = inject(MatDialog);
   @Input()
-  user: any;
+  user: User = {} as User;
 
   @Output()
   deleteUser = new EventEmitter();
@@ -63,7 +57,6 @@ export class UserCardComponent {
       if (editResult) {
         this.editUser.emit(editResult);
       }
-      console.log('Модалка закрылась', editResult);
     });
   }
 }

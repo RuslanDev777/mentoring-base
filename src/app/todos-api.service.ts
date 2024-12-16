@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Todos } from './todos-list/todos-list.component';
+import { Todos } from './interfaces/todos.interface';
 
 @Injectable({ providedIn: 'root' })
 export class TodosApiService {

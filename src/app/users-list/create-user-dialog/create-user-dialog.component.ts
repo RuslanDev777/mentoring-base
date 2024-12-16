@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { User } from '../users-list.component';
+import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   standalone: true,
@@ -46,7 +46,6 @@ export class CreateUserDialogComponent {
   get userWithCreateFields() {
     return {
       ...this.form.value,
-      // id: new Date().getTime(),
     };
   }
 }

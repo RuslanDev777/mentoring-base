@@ -6,11 +6,7 @@
 </div>
 
 <div class="users-container">
-  <mat-card
-    shadow
-    class="user-cart"
-    *ngFor="let item of usersService.users$ | async"
-  >
+  <mat-card shadow class="user-cart" *ngFor="let item of users$ | async">
     <app-user-card
       [user]="item"
       (deleteUser)="deleteUser($event)"
